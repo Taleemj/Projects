@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
+import SingleProject from "@/components/SingleProject";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +14,16 @@ export default function Home() {
         Check out all our latest projects in website an webapp development. We
         build a variety of projects from simple business landing pages to
         complex webapps such as management systems and ensure complete client
-        satisfaction
+        satisfaction.
       </p>
+      <section className={styles.projectsContainer}>
+        <SingleProject styles={styles} />
+        <SingleProject styles={styles} />
+        <SingleProject styles={styles} />
+        <SingleProject styles={styles} />
+        <SingleProject styles={styles} />
+        <SingleProject styles={styles} />
+      </section>
     </main>
   );
 }
