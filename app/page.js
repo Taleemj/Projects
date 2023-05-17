@@ -2,10 +2,19 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import SingleProject from "@/components/SingleProject";
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const query = groq`
+*[_type == "projects"]{
+  ...,
+} | order(_createdAt desc)
+`;
+
+export default async function Home() {
+  const projects = await client.fetch(query);
   return (
     <main className={styles.main}>
       <span>OUR WORK</span>
@@ -17,12 +26,9 @@ export default function Home() {
         satisfaction.
       </p>
       <section className={styles.projectsContainer}>
-        <SingleProject styles={styles} />
-        <SingleProject styles={styles} />
-        <SingleProject styles={styles} />
-        <SingleProject styles={styles} />
-        <SingleProject styles={styles} />
-        <SingleProject styles={styles} />
+        {projects.map((project, _i) => (
+          <SingleProject styles={styles} project={project} key={project._id} />
+        ))}
       </section>
     </main>
   );

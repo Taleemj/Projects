@@ -1,16 +1,24 @@
-import React from "react";
+import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
+import styles from "./project.module.css";
 
-const SingleProject = ({ styles }) => {
+const SingleProject = ({ project }) => {
   return (
     <div className={styles.project}>
-      {/* <Image src={} alt="IMG" /> */}
-      <div className={styles.img}></div>
+      <div className={styles.img}>
+        <Image
+          src={urlForImage(project.mainImage).url()}
+          alt="Project image"
+          width="350"
+          height="40"
+        />
+      </div>
       <div className={styles.projectdetails}>
         <div>
-          <h1>website Name</h1>
-          <p>website development</p>
+          <h1>{project.title}</h1>
+          <p>{project.subTitle}</p>
         </div>
-        <a href="/">&rarr;</a>
+        <a href={`/project/${project.slug.current}`}>&rarr;</a>
       </div>
     </div>
   );
