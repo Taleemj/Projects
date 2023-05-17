@@ -7,9 +7,20 @@
 .main h1 {
   font-size: 4rem;
 }
+.back {
+  margin-bottom: 40px;
+  font-size: 1rem;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+.back:hover {
+  text-decoration: underline;
+}
 .main span {
   font-size: 0.7rem;
   color: #a1a0a0;
+  display: block;
 }
 
 .main p {

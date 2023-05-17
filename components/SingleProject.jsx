@@ -18,7 +18,7 @@ const SingleProject = ({ project }) => {
           <h1>{project.title}</h1>
           <p>{project.subTitle}</p>
         </div>
-        <a href={`/project/${project.slug.current}`}>&rarr;</a>
+        <a href={`${project.body}`}>&rarr;</a>
       </div>
     </div>
   );

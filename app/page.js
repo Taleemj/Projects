@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import SingleProject from "@/components/SingleProject";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,9 @@ export default async function Home() {
   const projects = await client.fetch(query);
   return (
     <main className={styles.main}>
+      <Link className={styles.back} href={`https://webdevers.epizy.com`}>
+        &larr; go back
+      </Link>
       <span>OUR WORK</span>
       <h1>Projects</h1>
       <p>

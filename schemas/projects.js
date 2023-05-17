@@ -9,15 +9,6 @@ export default {
       title: "title",
     },
     {
-      name: "slug",
-      type: "slug",
-      title: "slug",
-      option: {
-        source: "title",
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, "-"),
-      },
-    },
-    {
       name: "subTitle",
       type: "string",
       title: "subTitle",

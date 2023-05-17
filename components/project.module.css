@@ -1,9 +1,10 @@
 .project {
   width: 48%;
+  margin: 40px 0;
 }
 .img {
   width: 100%;
-  height: 260px;
+  height: 290px;
 }
 .project .img img {
   width: 100%;
